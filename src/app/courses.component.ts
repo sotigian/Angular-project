@@ -4,11 +4,11 @@ import { CoursesService } from "./course/courses.service";
 @Component({
     selector: 'courses',
     template: `
-    <input (keyup)="onKeyUp($event)"/>`
+    <input (keyup.enter)="onKeyUp()"/>`
 })
 export class CoursesComponent{
-    onKeyUp($event: any) {
-        if($event.keyCode == 13) console.log("ENTER was pressed");
+    onKeyUp() {
+        console.log("ENTER was pressed");
     }
     
 }
