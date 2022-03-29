@@ -4,9 +4,9 @@ import { CoursesService } from "./course/courses.service";
 @Component({
     selector: 'courses',
     template: `
-    <button class="btn btn-primary" [class.active]="isActive">Submit</button>`
+    <button [style.backgroundColor]="isActive? 'blue': 'red'">Submit</button>`
 })
 export class CoursesComponent{
-    isActive = true;
+    isActive = false;
     
 }
