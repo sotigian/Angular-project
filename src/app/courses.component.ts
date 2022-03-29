@@ -3,14 +3,13 @@ import { CoursesService } from "./course/courses.service";
 
 @Component({
     selector: 'courses',
-    template: `<h2>{{title}}</h2>
-    <img [src]="imageUrl">`
+    template: `<table>
+        <tr>
+            <td [attr.colspan]="colSpan">Cell 1<td>
+        </tr>
+    </table>`
 })
 export class CoursesComponent{
-    title = "List of Courses";
-
-    courses: any[] = [];
-
-        imageUrl = "https://www.fillmurray.com/640/360s";
+    colSpan = 2;
     
 }
