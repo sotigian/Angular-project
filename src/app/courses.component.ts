@@ -3,14 +3,10 @@ import { CoursesService } from "./course/courses.service";
 
 @Component({
     selector: 'courses',
-    template: `<table>
-        <tr>
-            <td [attr.colspan]="colSpan">Cell 1<td>
-        </tr>
-    </table>
-    <button class="btn btn-primary">Submit</button>`
+    template: `
+    <button class="btn btn-primary" [class.active]="isActive">Submit</button>`
 })
 export class CoursesComponent{
-    colSpan = 2;
+    isActive = true;
     
 }
