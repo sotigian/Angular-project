@@ -3,7 +3,7 @@ import { CoursesService } from "./course/courses.service";
 
 @Component({
     selector: 'courses',
-    template: `{{text | summary}}`
+    template: `{{text | summary : 10}}`
 })
 export class CoursesComponent{
     text = `Lorem, ipsum dolor sit amet consectetur
