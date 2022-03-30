@@ -6,13 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  courses: any;
-  loadCourses(){
-    this.courses = [
-      {id:1, title: "Java"},
-      {id:2, title: "C+"},
-      {id:3, title: "Python"},
-      {id:4, title: "Javascript"}
-    ];
+  isGoingToGig = false;
+
+  onClick() {
+    this.isGoingToGig = !this.isGoingToGig;
   }
 }
