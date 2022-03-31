@@ -11,13 +11,13 @@ export class PostsComponentComponent {
   url = 'https://jsonplaceholder.typicode.com/posts'
 
   constructor(private http: HttpClient) {
-    http.get(this.url).subscribe(response =>{
+    http.get(this.url).subscribe(response => {
       this.posts = response;
     })
-   }
- 
-   createPost(input: HTMLInputElement) {
-    let post = {title: input.value};
+  }
+
+  createPost(input: HTMLInputElement) {
+    let post = { title: input.value };
     input.value = '';
     this.http.post(this.url, JSON.stringify(post))
       .subscribe(response => {
@@ -27,10 +27,21 @@ export class PostsComponentComponent {
   }
 
   updatePost(post: any) {
-    this.http.patch(`${this.url}/${post.id}`, JSON.stringify({isRead:true}))
-    .subscribe(response => {
-      console.log(response);
-    });
+    this.http.patch(`${this.url}/${post.id}`, JSON.stringify({ isRead: true }))
+      .subscribe(response => {
+        console.log(response);
+      });
+
   }
-  
+
+  deletePost(post: any) {
+    this.http.delete(`${this.url}/ ${post.id}`)
+      .subscribe(response => {
+        let index = this.posts.indexOf(post);
+        this.posts.splice(index, 1);
+        console.log(response);
+      })
+  }
+
+
 }
