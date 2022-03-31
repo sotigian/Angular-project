@@ -1,59 +1,44 @@
 <form #f="ngForm" (ngSubmit)="submit(f)">
     <div class="form-group">
         <label for="firstname">firstname</label>
-        <input
-          minlength="3"
-          maxlength="10"
-          pattern="[A-Za-z]*"
-          required
-          ngModel
-          name="firstname"
-          id="firstname"
-          #firstname="ngModel"
-          (change)="log(firstname)"
-          type="text"
-          class="form-control">
-          <div 
-               class="alert alert-danger"
-               *ngIf="firstname.touched && !firstname.valid">
-               <div *ngIf="firstname.errors?.['required']">First Name is required</div>
-               <div *ngIf="firstname.errors?.['minlength']">First Name must contain at least 3 characters</div>
-               <div *ngIf="firstname.errors?.['maxlength']">First Name must contain at most 10 characters</div>
-               <div *ngIf="firstname.errors?.['pattern']">First Name must contain only characters</div>
-          </div>
+        <input minlength="3" maxlength="10" pattern="[A-Za-z]*" required ngModel name="firstname" id="firstname"
+            #firstname="ngModel" (change)="log(firstname)" type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="firstname.touched && !firstname.valid">
+            <div *ngIf="firstname.errors?.['required']">First Name is required</div>
+            <div *ngIf="firstname.errors?.['minlength']">First Name must contain at least 3 characters</div>
+            <div *ngIf="firstname.errors?.['maxlength']">First Name must contain at most 10 characters</div>
+            <div *ngIf="firstname.errors?.['pattern']">First Name must contain only characters</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="comment">Comment</label>
-        <textarea
-             ngModel
-             name="message"
-             #message = "ngModel" 
-             id="comment" 
-             cols="30" 
-             rows="10" 
-             class="form-control">
+        <textarea ngModel name="message" #message="ngModel" id="comment" cols="30" rows="10" class="form-control">
 
         </textarea>
     </div>
     <div class="checkbox">
         <label for="">
-            <input
-            type="checkbox"
-            ngModel
-            name="isAgreed"
-            #isAgreed="ngModel">
+            <input type="checkbox" ngModel name="isAgreed" #isAgreed="ngModel">
             I agree with Terms & Conditions
         </label>
     </div>
     <div class="form-group">
         <label for="contactMethod"></label>
-        <select
-            ngModel name="contactMethod" 
-            id="contactMethod" 
-            class="form-control">
-                <option value=""></option>
-                <option *ngFor="let method of contactMethods" [value]="method.id">{{method.name}}</option>
+        <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+            <option value=""></option>
+            <option *ngFor="let method of contactMethods" [value]="method.id">{{method.name}}</option>
         </select>
+    </div>
+    <div class="radio" *ngFor="let method of contactMethods">
+        <label>
+            <input
+               type="radio"
+              [value]="method.id" 
+              ngModel 
+              name="contactMethod"
+            >{{method.name}}
+
+        </label>
     </div>
     <button class="btn btn-primary">
         Submit
