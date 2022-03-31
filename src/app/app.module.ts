@@ -10,6 +10,8 @@ import { AuthorsService } from './authors.service';
 import { FormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import {HttpClientModule} from '@angular/common/http';
+import { PostsComponentComponent } from './posts-component/posts-component.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     CourseComponent,
     AuthorsComponent,
     SummaryPipe,
-    ContactFormComponent
+    ContactFormComponent,
+    PostsComponentComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     CoursesService,
