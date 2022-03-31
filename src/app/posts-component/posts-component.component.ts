@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './posts-component.component.html',
   styleUrls: ['./posts-component.component.css']
 })
-export class PostsComponentComponent {
+export class PostsComponentComponent implements OnInit {
   posts: any
   url = 'https://jsonplaceholder.typicode.com/posts'
 
   constructor(private http: HttpClient) {
-    http.get(this.url).subscribe(response => {
+    
+  
+  }
+  ngOnInit(): void {
+    this.http.get(this.url).subscribe(response => {
       this.posts = response;
     })
   }
