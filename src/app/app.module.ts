@@ -20,6 +20,7 @@ import { ContactComponent } from './contact/contact.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialDemoComponent } from './angular-material-demo/angular-material-demo.component';
+import {MatCheckboxModule} from '@angular/material/checkbox'
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { AngularMaterialDemoComponent } from './angular-material-demo/angular-ma
       
 
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCheckboxModule
   ],
   providers: [
     CoursesService,
